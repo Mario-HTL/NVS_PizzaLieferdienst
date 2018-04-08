@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="NVS_PizzaLieferdienst" />
         <module name="weigl_test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="NVS_PizzaLieferdienst" target="1.8" />
       <module name="weigl_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
