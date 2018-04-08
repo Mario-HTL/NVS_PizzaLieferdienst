@@ -27,8 +27,19 @@ public class IngredientFacade {
         return ingredientTypedQuery.getResultList();
     }
 
-    public Ingredient getIngredientById(int i_Id){
-        TypedQuery<Ingredient> ingredientTypedQuery = em.createQuery("select i from Ingredient i where i.id =" + i_Id, Ingredient.class);
+    public List<String> getAllIngredientNames() {
+        TypedQuery<String> ingredientTypedQuery = em.createQuery("select i.i_Name from Ingredient i", String.class);
+        return ingredientTypedQuery.getResultList();
+    }
+
+    public Ingredient getIngredientById(int id){
+        TypedQuery<Ingredient> ingredientTypedQuery = em.createQuery("select i from Ingredient i where i.i_Id =" + id, Ingredient.class);
+        return ingredientTypedQuery.getSingleResult();
+    }
+
+    public Ingredient getIngredientByName(String name){
+        TypedQuery<Ingredient> ingredientTypedQuery = em.createQuery("select i from Ingredient i where i.i_Name = :name", Ingredient.class)
+                .setParameter("name", name);
         return ingredientTypedQuery.getSingleResult();
     }
 }

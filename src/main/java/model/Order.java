@@ -13,7 +13,7 @@ public class Order {
     @ManyToOne
     private Driver o_Driver;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Product> o_Products;
 
     private String o_Address;
@@ -22,6 +22,12 @@ public class Order {
 
     public Order(Driver o_Driver, List<Product> o_Products, String o_Address, int o_ZipCode) {
         this.o_Driver = o_Driver;
+        this.o_Products = o_Products;
+        this.o_Address = o_Address;
+        this.o_ZipCode = o_ZipCode;
+    }
+
+    public Order(List<Product> o_Products, String o_Address, int o_ZipCode) {
         this.o_Products = o_Products;
         this.o_Address = o_Address;
         this.o_ZipCode = o_ZipCode;

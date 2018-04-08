@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.util.List;
 
 @Stateless
 public class DriverFacade {
@@ -21,8 +22,13 @@ public class DriverFacade {
         }
     }
 
-    public Driver getDriverById(int d_Id){
-        TypedQuery<Driver> driverTypedQuery = em.createQuery("select d from Driver d where d.id =" + d_Id, Driver.class);
+    public Driver getDriverById(int id){
+        TypedQuery<Driver> driverTypedQuery = em.createQuery("select d from Driver d where d.d_Id =" + id, Driver.class);
         return driverTypedQuery.getSingleResult();
+    }
+
+    public List<Driver> getAllDrivers() {
+        TypedQuery<Driver> driverTypedQuery = em.createQuery("select d from Driver d", Driver.class);
+        return driverTypedQuery.getResultList();
     }
 }

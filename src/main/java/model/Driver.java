@@ -14,15 +14,6 @@ public class Driver {
 
     private String d_LastName;
 
-    @OneToMany
-    private List<Order> d_Orders;
-
-    public Driver(String d_FirstName, String d_LastName, List<Order> d_Orders) {
-        this.d_FirstName = d_FirstName;
-        this.d_LastName = d_LastName;
-        this.d_Orders = d_Orders;
-    }
-
     public Driver(String d_FirstName, String d_LastName) {
         this.d_FirstName = d_FirstName;
         this.d_LastName = d_LastName;
@@ -53,14 +44,6 @@ public class Driver {
 
     public void setD_LastName(String d_LastName) {
         this.d_LastName = d_LastName;
-    }
-
-    public List<Order> getD_Orders() {
-        return d_Orders;
-    }
-
-    public void setD_Orders(List<Order> d_Orders) {
-        this.d_Orders = d_Orders;
     }
 }
 

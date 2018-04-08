@@ -24,13 +24,18 @@ public class OrderFacade {
         }
     }
 
-    public Order getOrderById(int o_Id){
-        TypedQuery<Order> orderTypedQuery = em.createQuery("select o from Order o where o.id =" + o_Id, Order.class);
+    public Order getOrderById(int id){
+        TypedQuery<Order> orderTypedQuery = em.createQuery("select o from Order o where o.o_Id =" + id, Order.class);
         return orderTypedQuery.getSingleResult();
     }
 
     public List<Order> getAllOrders() {
         TypedQuery<Order> orderTypedQuery = em.createQuery("select o from Order o", Order.class);
+        return orderTypedQuery.getResultList();
+    }
+
+    public List<Order> getAllOrdersWithoutDriver() {
+        TypedQuery<Order> orderTypedQuery = em.createQuery("select o from Order o where o.o_Driver is NULL order by o.o_ZipCode", Order.class);
         return orderTypedQuery.getResultList();
     }
 }
