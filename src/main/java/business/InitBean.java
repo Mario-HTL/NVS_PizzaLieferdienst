@@ -38,7 +38,7 @@ public class InitBean {
 
         dFacade.create(new Driver("Max", "Musterman"));
 
-        oFacade.create(new Order(dFacade.getDriverById(1), productList, "Musterstraße 8", 4020));
-        List<Order> orderList = oFacade.getAllOrders();
+        oFacade.create(new Order(dFacade.getDriverById(1), productList, "Musterstreet 8", 4020, false));
+        oFacade.create(new Order(dFacade.getDriverById(1), productList, "Finished 8", 4020, true));
     }
 }

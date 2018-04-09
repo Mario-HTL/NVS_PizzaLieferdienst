@@ -78,34 +78,75 @@
 
     <p:separator />
 
-    <p:dataTable var="order" value="#{indexController.orders}" id="orderTable">
-        <p:column headerText="ID">
-            <h:outputText value="#{order.o_Id}" />
-        </p:column>
 
-        <p:column headerText="Driver">
-            <h:outputText value="#{order.o_Driver.d_FirstName}" />
-        </p:column>
+        <p:dataTable var="order" value="#{indexController.orders}" id="orderTable">
+            <f:facet name="header">
+                Unfinished Orders
+            </f:facet>
+            <p:column headerText="ID">
+                <h:outputText value="#{order.o_Id}" />
+            </p:column>
 
-        <p:column headerText="Address">
-            <h:outputText value="#{order.o_Address}" />
-        </p:column>
+            <p:column headerText="Driver">
+                <h:outputText value="#{order.o_Driver.d_FirstName}" />
+            </p:column>
 
-        <p:column headerText="ZipCode">
-            <h:outputText value="#{order.o_ZipCode}" />
-        </p:column>
+            <p:column headerText="Address">
+                <h:outputText value="#{order.o_Address}" />
+            </p:column>
 
-        <p:column headerText="Products">
-            <ui:repeat value="#{order.o_Products}" var="product">
-                <h:outputText value="#{product.p_Name} " />
-            </ui:repeat>
-        </p:column>
-    </p:dataTable>
+            <p:column headerText="ZipCode">
+                <h:outputText value="#{order.o_ZipCode}" />
+            </p:column>
+
+            <p:column headerText="Products">
+                <ui:repeat value="#{order.o_Products}" var="product">
+                    <h:outputText value="'#{product.p_Name}' " />
+                </ui:repeat>
+            </p:column>
+
+            <p:column headerText="Finish Order">
+                <h:form id="form5">
+                <p:commandButton value="Finish Order" actionListener="#{indexController.finishOrder(order)}" update="orderTable, fOrderTable" icon="ui-icon-check" />
+                </h:form>
+
+            </p:column>
+
+        </p:dataTable>
 
     <p:separator />
 
-    <h:form id="form5">
+    <h:form id="form6">
         <p:commandButton value="Add Driver to Orders" actionListener="#{indexController.addDriverToOrders}" update="orderTable" icon="ui-icon-check" />
     </h:form>
+
+    <p:separator />
+
+    <p:dataTable var="fOrder" value="#{indexController.fOrders}" id="fOrderTable">
+        <f:facet name="header">
+            Finished Orders
+        </f:facet>
+        <p:column headerText="ID">
+            <h:outputText value="#{fOrder.o_Id}" />
+        </p:column>
+
+        <p:column headerText="Driver">
+            <h:outputText value="#{fOrder.o_Driver.d_FirstName}" />
+        </p:column>
+
+        <p:column headerText="Address">
+            <h:outputText value="#{fOrder.o_Address}" />
+        </p:column>
+
+        <p:column headerText="ZipCode">
+            <h:outputText value="#{fOrder.o_ZipCode}" />
+        </p:column>
+
+        <p:column headerText="Products">
+            <ui:repeat value="#{fOrder.o_Products}" var="product">
+                <h:outputText value="'#{product.p_Name}' " />
+            </ui:repeat>
+        </p:column>
+    </p:dataTable>
 </h:body>
 </html>

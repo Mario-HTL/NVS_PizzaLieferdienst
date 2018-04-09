@@ -20,11 +20,14 @@ public class Order {
 
     private int o_ZipCode;
 
-    public Order(Driver o_Driver, List<Product> o_Products, String o_Address, int o_ZipCode) {
+    private boolean o_done;
+
+    public Order(Driver o_Driver, List<Product> o_Products, String o_Address, int o_ZipCode, boolean o_done) {
         this.o_Driver = o_Driver;
         this.o_Products = o_Products;
         this.o_Address = o_Address;
         this.o_ZipCode = o_ZipCode;
+        this.o_done = o_done;
     }
 
     public Order(List<Product> o_Products, String o_Address, int o_ZipCode) {
@@ -74,5 +77,13 @@ public class Order {
 
     public void setO_ZipCode(int o_ZipCode) {
         this.o_ZipCode = o_ZipCode;
+    }
+
+    public boolean isO_done() {
+        return o_done;
+    }
+
+    public void setO_done(boolean o_done) {
+        this.o_done = o_done;
     }
 }

@@ -34,6 +34,16 @@ public class OrderFacade {
         return orderTypedQuery.getResultList();
     }
 
+    public List<Order> getAllUnfinishedOrders() {
+        TypedQuery<Order> orderTypedQuery = em.createQuery("select o from Order o where o.o_done = false", Order.class);
+        return orderTypedQuery.getResultList();
+    }
+
+    public List<Order> getAllFinishedOrders() {
+        TypedQuery<Order> orderTypedQuery = em.createQuery("select o from Order o where o.o_done = true", Order.class);
+        return orderTypedQuery.getResultList();
+    }
+
     public List<Order> getAllOrdersWithoutDriver() {
         TypedQuery<Order> orderTypedQuery = em.createQuery("select o from Order o where o.o_Driver is NULL order by o.o_ZipCode", Order.class);
         return orderTypedQuery.getResultList();

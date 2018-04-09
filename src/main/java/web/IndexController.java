@@ -48,6 +48,7 @@ public class IndexController implements Serializable {
     private double newOrderTotal = 0;
 
     private List<Order> orders = new LinkedList<Order>();
+    private List<Order> fOrders = new LinkedList<Order>();
     private List<Order> ordersWithoutDriver = new LinkedList<Order>();
     private List<Driver> drivers = new LinkedList<Driver>();
 
@@ -95,6 +96,13 @@ public class IndexController implements Serializable {
 
         for(Order o : ordersWithoutDriver){
             o.setO_Driver(dFacade.getDriverById(1));
+            oFacade.create(o);
+        }
+    }
+
+    public void finishOrder(Order o){
+        if(o.getO_Driver() != null) {
+            o.setO_done(true);
             oFacade.create(o);
         }
     }
@@ -228,7 +236,7 @@ public class IndexController implements Serializable {
     }
 
     public List<Order> getOrders() {
-        orders = oFacade.getAllOrders();
+        orders = oFacade.getAllUnfinishedOrders();
         return orders;
     }
 
@@ -251,5 +259,14 @@ public class IndexController implements Serializable {
 
     public void setDrivers(List<Driver> drivers) {
         this.drivers = drivers;
+    }
+
+    public List<Order> getfOrders() {
+        fOrders = oFacade.getAllFinishedOrders();
+        return fOrders;
+    }
+
+    public void setfOrders(List<Order> fOrders) {
+        this.fOrders = fOrders;
     }
 }
