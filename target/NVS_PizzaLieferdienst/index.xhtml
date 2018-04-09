@@ -78,41 +78,38 @@
 
     <p:separator />
 
+    <p:dataTable var="order" value="#{indexController.orders}" id="orderTable">
+        <f:facet name="header">
+            Unfinished Orders
+        </f:facet>
+        <p:column headerText="ID">
+            <h:outputText value="#{order.o_Id}" />
+        </p:column>
 
-        <p:dataTable var="order" value="#{indexController.orders}" id="orderTable">
-            <f:facet name="header">
-                Unfinished Orders
-            </f:facet>
-            <p:column headerText="ID">
-                <h:outputText value="#{order.o_Id}" />
-            </p:column>
+        <p:column headerText="Driver">
+            <h:outputText value="#{order.o_Driver.d_FirstName}" />
+        </p:column>
 
-            <p:column headerText="Driver">
-                <h:outputText value="#{order.o_Driver.d_FirstName}" />
-            </p:column>
+        <p:column headerText="Address">
+            <h:outputText value="#{order.o_Address}" />
+        </p:column>
 
-            <p:column headerText="Address">
-                <h:outputText value="#{order.o_Address}" />
-            </p:column>
+        <p:column headerText="ZipCode">
+            <h:outputText value="#{order.o_ZipCode}" />
+        </p:column>
 
-            <p:column headerText="ZipCode">
-                <h:outputText value="#{order.o_ZipCode}" />
-            </p:column>
+        <p:column headerText="Products">
+            <ui:repeat value="#{order.o_Products}" var="product">
+                <h:outputText value="'#{product.p_Name}' " />
+            </ui:repeat>
+        </p:column>
 
-            <p:column headerText="Products">
-                <ui:repeat value="#{order.o_Products}" var="product">
-                    <h:outputText value="'#{product.p_Name}' " />
-                </ui:repeat>
-            </p:column>
-
-            <p:column headerText="Finish Order">
-                <h:form id="form5">
+        <p:column headerText="Finish Order">
+            <h:form id="form5">
                 <p:commandButton value="Finish Order" actionListener="#{indexController.finishOrder(order)}" update="orderTable, fOrderTable" icon="ui-icon-check" />
-                </h:form>
-
-            </p:column>
-
-        </p:dataTable>
+            </h:form>
+        </p:column>
+    </p:dataTable>
 
     <p:separator />
 

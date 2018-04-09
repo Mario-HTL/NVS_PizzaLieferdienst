@@ -52,6 +52,8 @@ public class IndexController implements Serializable {
     private List<Order> ordersWithoutDriver = new LinkedList<Order>();
     private List<Driver> drivers = new LinkedList<Driver>();
 
+    private List<Ingredient> ingredientsList = new LinkedList<Ingredient>();
+
     public IndexController() {
     }
 
@@ -268,5 +270,14 @@ public class IndexController implements Serializable {
 
     public void setfOrders(List<Order> fOrders) {
         this.fOrders = fOrders;
+    }
+
+    public List<Ingredient> getIngredientsList() {
+        ingredientsList = iFacade.getAllIngredients();
+        return ingredientsList;
+    }
+
+    public void setIngredientsList(List<Ingredient> ingredientsList) {
+        this.ingredientsList = ingredientsList;
     }
 }
