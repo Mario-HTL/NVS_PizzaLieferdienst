@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>model.Driver</OriginalElement>
+  <nodes>
+    <node x="32.821428571428584" y="0.0">javax.persistence.Entity</node>
+    <node x="149.8035714285714" y="411.0">model.Order</node>
+    <node x="10.5" y="234.0">model.Product</node>
+    <node x="242.82142857142858" y="0.0">javax.persistence.Table</node>
+    <node x="223.19642857142858" y="89.0">model.Driver</node>
+    <node x="59.196428571428584" y="100.0">model.Ingredient</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="model.Product" target="model.Ingredient">
+      <point x="-28.875" y="-58.5" />
+      <point x="97.125" y="209.0" />
+      <point x="94.94642857142858" y="209.0" />
+      <point x="-35.75" y="36.5" />
+    </edge>
+    <edge source="model.Driver" target="javax.persistence.Table">
+      <point x="42.25" y="-47.5" />
+      <point x="349.94642857142856" y="69.0" />
+      <point x="290.94642857142856" y="69.0" />
+      <point x="9.625" y="14.5" />
+    </edge>
+    <edge source="model.Driver" target="javax.persistence.Entity">
+      <point x="-42.25" y="-47.5" />
+      <point x="265.44642857142856" y="49.0" />
+      <point x="101.07142857142858" y="49.0" />
+      <point x="29.25" y="14.5" />
+    </edge>
+    <edge source="model.Ingredient" target="javax.persistence.Table">
+      <point x="35.75" y="-36.5" />
+      <point x="166.44642857142858" y="59.0" />
+      <point x="252.44642857142858" y="59.0" />
+      <point x="-28.875" y="14.5" />
+    </edge>
+    <edge source="model.Product" target="javax.persistence.Entity">
+      <point x="-86.625" y="-58.5" />
+      <point x="39.375" y="209.0" />
+      <point x="29.8125" y="209.0" />
+      <point x="29.8125" y="69.0" />
+      <point x="62.071428571428584" y="69.0" />
+      <point x="-9.75" y="14.5" />
+    </edge>
+    <edge source="model.Order" target="javax.persistence.Entity">
+      <point x="-86.24999999999997" y="-69.5" />
+      <point x="167.05357142857142" y="391.0" />
+      <point x="0.0" y="391.0" />
+      <point x="0.0" y="59.0" />
+      <point x="42.571428571428584" y="59.0" />
+      <point x="-29.25" y="14.5" />
+    </edge>
+    <edge source="model.Order" target="model.Product">
+      <point x="-17.24999999999997" y="-69.5" />
+      <point x="236.05357142857142" y="371.0" />
+      <point x="183.75" y="371.0" />
+      <point x="57.75" y="58.5" />
+    </edge>
+    <edge source="model.Product" target="javax.persistence.Table">
+      <point x="86.625" y="-58.5" />
+      <point x="212.69642857142858" y="69.0" />
+      <point x="271.69642857142856" y="69.0" />
+      <point x="-9.625" y="14.5" />
+    </edge>
+    <edge source="model.Order" target="javax.persistence.Table">
+      <point x="86.25000000000003" y="-69.5" />
+      <point x="339.55357142857144" y="391.0" />
+      <point x="402.69642857142856" y="391.0" />
+      <point x="402.69642857142856" y="59.0" />
+      <point x="310.19642857142856" y="59.0" />
+      <point x="28.875" y="14.5" />
+    </edge>
+    <edge source="model.Order" target="model.Driver">
+      <point x="51.75000000000003" y="-69.5" />
+      <point x="305.05357142857144" y="391.0" />
+      <point x="306.24107142857144" y="391.0" />
+      <point x="306.24107142857144" y="209.0" />
+      <point x="349.94642857142856" y="209.0" />
+      <point x="42.25" y="47.5" />
+    </edge>
+    <edge source="model.Ingredient" target="javax.persistence.Entity">
+      <point x="-35.75" y="-36.5" />
+      <point x="94.94642857142858" y="69.0" />
+      <point x="81.57142857142858" y="69.0" />
+      <point x="9.75" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="201.5" y="275.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
