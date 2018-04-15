@@ -37,7 +37,9 @@
                 <f:selectItems value="#{indexController.ingredients}" />
             </p:selectCheckboxMenu>
 
-            <p:commandButton value="Create new Product" icon="ui-icon-check" actionListener="#{indexController.addProduct}"/>
+            <p:commandButton value="Create new Product" update="addProductErrorMessage" icon="ui-icon-check" action="#{indexController.addProduct}"/>
+
+            <h:outputText id="addProductErrorMessage" value="#{indexController.addProductErrorMessage}" style="font-weight:bold"/>
         </h:panelGrid>
     </h:form>
 

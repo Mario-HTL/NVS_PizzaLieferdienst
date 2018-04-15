@@ -33,6 +33,8 @@ public class IndexController implements Serializable {
     private double newProductPrice;
     private String[] selectedProducts;
     private List<String> products = new LinkedList<String>();
+    private List<Product> allProducts = new LinkedList<Product>();
+    private String addProductErrorMessage;
 
     private String newIngredientName;
     private List<Ingredient> newIngredients = new LinkedList<Ingredient>();
@@ -70,16 +72,25 @@ public class IndexController implements Serializable {
     }
 
     public void addProduct(){
-        if(selectedIngredients.length == 0){
-            Product p = new Product(newProductName, newProductPrice);
-            pFacade.create(p);
-        }else {
-            for(String s : selectedIngredients){
-                newIngredients.add(iFacade.getIngredientByName(s));
+        products = pFacade.getAllProductNames();
+
+        if(!products.contains(newProductName)){
+            addProductErrorMessage = "Product added!";
+
+            if(selectedIngredients.length == 0){
+                Product p = new Product(newProductName, newProductPrice);
+                pFacade.create(p);
+            }else {
+                for(String s : selectedIngredients){
+                    newIngredients.add(iFacade.getIngredientByName(s));
+                }
+                Product p = new Product(newProductName, newProductPrice, newIngredients);
+                pFacade.create(p);
             }
-            Product p = new Product(newProductName, newProductPrice, newIngredients);
-            pFacade.create(p);
+        }else{
+            addProductErrorMessage = "Product already exists!";
         }
+
     }
 
     public void addOrder(){
@@ -107,6 +118,22 @@ public class IndexController implements Serializable {
             o.setO_done(true);
             oFacade.create(o);
         }
+    }
+
+    public List<Product> getAllProducts() {
+        return allProducts;
+    }
+
+    public void setAllProducts(List<Product> allProducts) {
+        this.allProducts = allProducts;
+    }
+
+    public String getAddProductErrorMessage() {
+        return addProductErrorMessage;
+    }
+
+    public void setAddProductErrorMessage(String addProductErrorMessage) {
+        this.addProductErrorMessage = addProductErrorMessage;
     }
 
     public String getNewProductName() {
